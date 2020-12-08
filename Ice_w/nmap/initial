@@ -1,0 +1,1 @@
+# Nmap 7.80 scan initiated Mon Aug 17 02:53:28 2020 as: nmap -sS -v -Pn -p- -oN nmap/initial 10.10.86.232

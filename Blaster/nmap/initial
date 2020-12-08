@@ -1,0 +1,41 @@
+# Nmap 7.80 scan initiated Sat Aug 22 14:05:23 2020 
+# as: nmap -Pn -A -O -T4 -oN nmap/initial 10.10.186.14
+
+Nmap scan report for 10.10.186.14
+Host is up (0.21s latency).
+Not shown: 998 filtered ports
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: RETROWEB
+|   NetBIOS_Domain_Name: RETROWEB
+|   NetBIOS_Computer_Name: RETROWEB
+|   DNS_Domain_Name: RetroWeb
+|   DNS_Computer_Name: RetroWeb
+|   Product_Version: 10.0.14393
+|_  System_Time: 2020-08-22T08:36:38+00:00
+| ssl-cert: Subject: commonName=RetroWeb
+| Not valid before: 2020-05-21T21:44:38
+|_Not valid after:  2020-11-20T21:44:38
+|_ssl-date: 2020-08-22T08:36:41+00:00; +1s from scanner time.
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2016 (89%), FreeBSD 6.X (85%)
+OS CPE: cpe:/o:microsoft:windows_server_2016 cpe:/o:freebsd:freebsd:6.2
+Aggressive OS guesses: Microsoft Windows Server 2016 (89%), FreeBSD 6.2-RELEASE (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+TRACEROUTE (using port 3389/tcp)
+HOP RTT       ADDRESS
+1   224.60 ms 10.9.0.1
+2   224.72 ms 10.10.186.14
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug 22 14:06:41 2020 -- 1 IP address (1 host up) scanned in 78.60 seconds

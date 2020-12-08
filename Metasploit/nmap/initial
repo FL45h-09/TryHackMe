@@ -1,0 +1,67 @@
+# Nmap 7.80 scan initiated Wed Sep  2 14:22:51 2020 as: nmap -A -T4 -oN nmap/initial 10.10.127.188
+Nmap scan report for 10.10.127.188
+Host is up (0.17s latency).
+Not shown: 988 closed ports
+PORT      STATE SERVICE        VERSION
+135/tcp   open  msrpc          Microsoft Windows RPC
+139/tcp   open  netbios-ssn    Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds   Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server?
+|_ssl-date: 2020-09-02T08:55:27+00:00; +1s from scanner time.
+5357/tcp  open  http           Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Service Unavailable
+8000/tcp  open  http           Icecast streaming media server
+|_http-title: Site doesn't have a title (text/html).
+49152/tcp open  msrpc          Microsoft Windows RPC
+49153/tcp open  msrpc          Microsoft Windows RPC
+49154/tcp open  msrpc          Microsoft Windows RPC
+49158/tcp open  msrpc          Microsoft Windows RPC
+49159/tcp open  msrpc          Microsoft Windows RPC
+49160/tcp open  msrpc          Microsoft Windows RPC
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=9/2%OT=135%CT=1%CU=39805%PV=Y%DS=2%DC=T%G=Y%TM=5F4F5E3
+OS:A%P=i686-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=10E%TI=I%CI=I%II=I%SS=S%TS=7)
+OS:SEQ(SP=107%GCD=1%ISR=10E%TI=RD%CI=I%II=I%TS=6)OPS(O1=M508NW8ST11%O2=M508
+OS:NW8ST11%O3=M508NW8NNT11%O4=M508NW8ST11%O5=M508NW8ST11%O6=M508ST11)WIN(W1
+OS:=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2000)ECN(R=Y%DF=Y%T=80%W=2000%O
+OS:=M508NW8NNS%CC=N%Q=)ECN(R=N)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=
+OS:Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=A
+OS:R%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=8
+OS:0%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%
+OS:Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=16
+OS:4%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)U1(R=N)IE(R=Y%DFI=N%T=80%CD=Z)
+
+Network Distance: 2 hops
+Service Info: Host: DARK-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 1h15m00s, deviation: 2h30m00s, median: 0s
+|_nbstat: NetBIOS name: DARK-PC, NetBIOS user: <unknown>, NetBIOS MAC: 02:81:3a:c5:27:c7 (unknown)
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: Dark-PC
+|   NetBIOS computer name: DARK-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2020-09-02T03:55:20-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-09-02T08:55:20
+|_  start_date: 2020-09-02T08:50:23
+
+TRACEROUTE (using port 8888/tcp)
+HOP RTT       ADDRESS
+1   190.24 ms 10.9.0.1
+2   169.66 ms 10.10.127.188
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Sep  2 14:26:26 2020 -- 1 IP address (1 host up) scanned in 215.04 seconds

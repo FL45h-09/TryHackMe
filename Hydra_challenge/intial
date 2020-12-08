@@ -1,0 +1,37 @@
+# Nmap 7.80 scan initiated Wed Nov  4 17:12:29 2020 as: nmap -A -Pn -sC -oN intial 10.10.142.52
+Nmap scan report for 10.10.142.52
+Host is up (0.33s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 88:16:57:98:04:ab:f2:f9:37:3b:81:d4:55:59:04:38 (RSA)
+|   256 5c:d6:6d:7f:1a:55:06:bc:03:0a:80:08:30:45:7e:ba (ECDSA)
+|_  256 cd:bd:9a:8d:9d:2c:d5:9c:31:a0:77:dd:9d:36:3b:58 (ED25519)
+80/tcp open  http    Node.js Express framework
+| http-title: Hydra Challenge
+|_Requested resource was /login
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=11/4%OT=22%CT=1%CU=39439%PV=Y%DS=2%DC=T%G=Y%TM=5FA2940
+OS:1%P=i686-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=10C%TI=Z%CI=I%TS=8)SEQ(SP=107
+OS:%GCD=1%ISR=10C%TI=Z%CI=I%II=I%TS=8)SEQ(SP=107%GCD=1%ISR=10C%TI=Z%II=I%TS
+OS:=8)OPS(O1=M508ST11NW7%O2=M508ST11NW7%O3=M508NNT11NW7%O4=M508ST11NW7%O5=M
+OS:508ST11NW7%O6=M508ST11)WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68
+OS:DF)ECN(R=Y%DF=Y%T=40%W=6903%O=M508NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=
+OS:S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q
+OS:=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A
+OS:%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y
+OS:%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T
+OS:=40%CD=S)
+
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 3306/tcp)
+HOP RTT       ADDRESS
+1   272.04 ms 10.9.0.1
+2   273.63 ms 10.10.142.52
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Nov  4 17:14:01 2020 -- 1 IP address (1 host up) scanned in 92.79 seconds

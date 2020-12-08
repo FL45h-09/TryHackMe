@@ -1,0 +1,8 @@
+export ip=10.10.35.7
+
+ssh shiba3@$ip
+
+pass: happynootnoises
+
+shiba4:test1234
+

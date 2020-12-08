@@ -1,0 +1,90 @@
+Linux security-server 4.18.0-193.28.1.el8_2.x86_64 #1 SMP Thu Oct 22 00:20:22 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 06:30:41 up  1:41,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=48(apache) gid=48(apache) groups=48(apache)
+sh: cannot set terminal process group (833): Inappropriate ioctl for device
+sh: no job control in this shell
+sh-4.4$ clear
+TERM environment variable not set.
+sh-4.4$ ls
+bin
+boot
+dev
+etc
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+sh-4.4$ cd var
+sh-4.4$ ls
+adm
+cache
+crash
+db
+empty
+ftp
+games
+gopher
+kerberos
+lib
+local
+lock
+log
+mail
+nis
+opt
+preserve
+run
+spool
+tmp
+www
+yp
+sh-4.4$ cd www
+sh-4.4$ ls
+cgi-bin
+flag.txt
+html
+sh-4.4$ cat flag.txt
+
+
+==============================================================
+
+
+You've reached the end of the Advent of Cyber, Day 2 -- hopefully you're enjoying yourself so far, and are learning lots! 
+This is all from me, so I'm going to take the chance to thank the awesome @Vargnaar for his invaluable design lessons, without which the theming of the past two websites simply would not be the same. 
+
+
+Have a flag -- you deserve it!
+THM{MGU3Y2UyMGUwNjExYTY4NTAxOWJhMzhh}
+
+
+Good luck on your mission (and maybe I'll see y'all again on Christmas Eve)!
+ --Muiri (@MuirlandOracle)
+
+
+==============================================================
+
+
+sh-4.4$ /var/www
+pwd
+sh-4.4$ whoami
+apache
+sh-4.4$ getuserid
+sh: getuserid: command not found
+sh-4.4$ shutdown
+sh: shutdown: command not found
+sh-4.4$ logout
+sh: logout: not login shell: use `exit'
+sh-4.4$ exit
+exit
