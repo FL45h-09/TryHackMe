@@ -1,0 +1,49 @@
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Dec 12 00:25:53 2020
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 10.10.117.79
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ==================================================== 
+|    Enumerating Workgroup/Domain on 10.10.117.79    |
+ ==================================================== 
+[+] Got domain/workgroup name: TBFC-SMB-01
+
+ ===================================== 
+|    Session Check on 10.10.117.79    |
+ ===================================== 
+[+] Server 10.10.117.79 allows sessions using username '', password ''
+
+ =========================================== 
+|    Getting domain SID for 10.10.117.79    |
+ =========================================== 
+Domain Name: TBFC-SMB-01
+Domain Sid: (NULL SID)
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ========================================= 
+|    Share Enumeration on 10.10.117.79    |
+ ========================================= 
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	tbfc-hr         Disk      tbfc-hr
+	tbfc-it         Disk      tbfc-it
+	tbfc-santa      Disk      tbfc-santa
+	IPC$            IPC       IPC Service (tbfc-smb server (Samba, Ubuntu))
+SMB1 disabled -- no workgroup available
+
+[+] Attempting to map shares on 10.10.117.79
+//10.10.117.79/tbfc-hr	Mapping: DENIED, Listing: N/A
+//10.10.117.79/tbfc-it	Mapping: DENIED, Listing: N/A
+//10.10.117.79/tbfc-santa	Mapping: OK, Listing: OK
+//10.10.117.79/IPC$	[E] Can't understand response:
+NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
+enum4linux complete on Sat Dec 12 00:26:11 2020
+
