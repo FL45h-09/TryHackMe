@@ -1,0 +1,37 @@
+# Nmap 7.80 scan initiated Sun Dec 27 14:02:26 2020 as: nmap -oN vuln --script vuln -p 80,6498,65524 -vv -T 4 10.10.55.207
+Nmap scan report for 10.10.55.207
+Host is up, received echo-reply ttl 63 (0.48s latency).
+Scanned at 2020-12-27 14:02:37 IST for 824s
+
+PORT      STATE SERVICE REASON
+80/tcp    open  http    syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|   /robots.txt: Robots file
+|_  /hidden/: Potentially interesting folder
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-vuln-cve2011-3192: 
+|   VULNERABLE:
+|   Apache byterange filter DoS
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2011-3192  BID:49303
+|       The Apache web server is vulnerable to a denial of service attack when numerous
+|       overlapping byte ranges are requested.
+|     Disclosure date: 2011-08-19
+|     References:
+|       https://www.tenable.com/plugins/nessus/55976
+|       https://www.securityfocus.com/bid/49303
+|       https://seclists.org/fulldisclosure/2011/Aug/175
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3192
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+6498/tcp  open  unknown syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+65524/tcp open  unknown syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun Dec 27 14:16:21 2020 -- 1 IP address (1 host up) scanned in 834.43 seconds

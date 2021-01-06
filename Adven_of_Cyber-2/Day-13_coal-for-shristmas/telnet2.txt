@@ -1,0 +1,106 @@
+Trying 10.10.148.69...
+Connected to 10.10.148.69.
+Escape character is '^]'.
+HI SANTA!!! 
+
+We knew you were coming and we wanted to make
+it easy to drop off presents, so we created
+an account for you to use.
+
+Username: santa
+Password: clauschristmas
+
+We left you cookies and milk!
+
+christmas login: firefart
+
+Login incorrect
+christmas login: fire^H^H^H^H^H^H^H^H^H^H^H^H^H^H                                santa ^H   
+Password: 
+
+Login incorrect
+christmas login: santa
+Password: 
+Login timed out after 60 seconds.
+Trying 10.10.148.69...
+Connected to 10.10.148.69.
+Escape character is '^]'.
+HI SANTA!!! 
+
+We knew you were coming and we wanted to make
+it easy to drop off presents, so we created
+an account for you to use.
+
+Username: santa
+Password: clauschristmas
+
+We left you cookies and milk!
+
+christmas login: santa
+Password: 
+Last login: Wed Dec 16 08:59:28 UTC 2020 from ip-10-9-69-3.eu-west-1.compute.internal on pts/0
+                \ / 
+              -->*<-- 
+                /o\ 
+               /_\_\ 
+              /_/_0_\ 
+             /_o_\_\_\ 
+            /_/_/_/_/o\ 
+           /@\_\_\@\_\_\ 
+          /_/_/O/_/_/_/_\ 
+         /_\_\_\_\_\o\_\_\ 
+        /_/0/_/_/_0_/_/@/_\ 
+       /_\_\_\_\_\_\_\_\_\_\ 
+      /_/o/_/_/@/_/_/o/_/0/_\ 
+               [___] 
+   
+$ clear
+[H[2J$ ls
+christmas.sh  cookies_and_milk.txt  dirty  dirty.c
+$ su firefart
+Password: 
+]0;firefart@christmas: /home/santafirefart@christmas:/home/santa# clear
+[H[2J]0;firefart@christmas: /home/santafirefart@christmas:/home/santa# ls
+[0m[01;32mchristmas.sh[0m  cookies_and_milk.txt  [01;32mdirty[0m  dirty.c
+]0;firefart@christmas: /home/santafirefart@christmas:/home/santa# cd ..  /root
+]0;firefart@christmas: ~firefart@christmas:~# ls
+[0m[01;32mchristmas.sh[0m  message_from_the_grinch.txt
+]0;firefart@christmas: ~firefart@christmas:~# cat   less message_from_the_grinch.txt 
+[?1049h[?1h=Nice work, Santa!
+
+Wow, this house sure was DIRTY!
+I think they deserve coal for Christmas, don't you?
+So let's leave some coal under the Christmas `tree`!
+
+Let's work together on this. Leave this text file here,
+and leave the christmas.sh script here too...
+but, create a file named `coal` in this directory!
+Then, inside this directory, pipe the output
+of the `tree` command into the `md5sum` command.
+
+The output of that command (the hash itself) is
+the flag you can submit to complete this task
+for the Advent of Cyber!
+
+        - Yours,
+                John Hammond
+[7mmessage_from_the_grinch.txt[27m[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K                er, sorry, I mean, the Grinch
+
+          - THE GRINCH, SERIOUSLY
+
+[7m(END)[27m[K[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[HMI think they deserve coal for Christmas, don't you?
+[19;1H[K:[K[K [KESCESC[KOO[KAA[K[HMWow, this house sure was DIRTY!
+[19;1H[K:[K[K [KESCESC[KOO[KAA[K[HM
+[19;1H[K:[K[K [KESCESC[KOO[KAA[K[HMNice work, Santa!
+[19;1H[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K [KESCESC[KOO[KAA[K[K:[K[K[?1l>[?1049l]0;firefart@christmas: ~firefart@christmas:~# [Kclear
+[H[2J]0;firefart@christmas: ~firefart@christmas:~# touch     nano coal
+[?1049h[1;19r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                    File: coal                                               [17;41H[ New File ][18d^G(B[m Get Help    (B[0;7m^O(B[m WriteOut    (B[0;7m^R(B[m Read File   (B[0;7m^Y(B[m Prev Page   (B[0;7m^K(B[m Cut Text    (B[0;7m^C(B[m Cur Pos[19d(B[0;7m^X(B[m Exit[19;16H(B[0;7m^J(B[m Justify     (B[0;7m^W(B[m Where Is    (B[0;7m^V(B[m Next Page   (B[0;7m^U(B[m UnCut Text  (B[0;7m^T(B[m To Spell[3d[1;84H(B[0;7mModified[3d(B[mtree | md5sum[17d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                 [18;1H Y(B[m Yes[K[19d(B[0;7m N(B[m No  [19;16H (B[0;7m^C(B[m Cancel[K[17;62H(B[0;7mFile Name to Write: coal                                    [18d^G(B[m Get Help[18;24H(B[0;7mM-D(B[m DOS Format[18;47H(B[0;7mM-A(B[m Append[18;70H(B[0;7mM-B(B[m Backup File[19d(B[0;7m^C(B[m Cancel[17G       (B[0;7mM-M(B[m Mac Format[19;47H(B[0;7mM-P(B[m Prepend[17;25H[18d[39;49m(B[m[J[1;84H(B[0;7m        [17;38H(B[m[1K (B[0;7m[ Wrote 1 line ](B[m[K[19;93H[19;1H[?1049l[?1l>]0;firefart@christmas: ~firefart@christmas:~# ls
+[0m[01;32mchristmas.sh[0m  coal  message_from_the_grinch.txt
+]0;firefart@christmas: ~firefart@christmas:~# cg hmod _x coal            od +x coal 
+]0;firefart@christmas: ~firefart@christmas:~# ./coal 
+8b16f00dd3b51efadb02c1df7f8427cc  -
+]0;firefart@christmas: ~firefart@christmas:~# 
+Broadcast message from firefart@christmas
+	(unknown) at 10:12 ...
+
+The system is going down for power off NOW!

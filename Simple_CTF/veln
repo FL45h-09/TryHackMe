@@ -1,0 +1,25 @@
+# Nmap 7.80 scan initiated Tue Jan  5 15:44:59 2021 as: nmap --script vuln -oN veln -vv 10.10.10.121
+Nmap scan report for 10.10.10.121
+Host is up, received echo-reply ttl 63 (0.28s latency).
+Scanned at 2021-01-05 15:45:10 IST for 334s
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT     STATE SERVICE      REASON
+21/tcp   open  ftp          syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_sslv2-drown: 
+80/tcp   open  http         syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|_  /robots.txt: Robots file
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+2222/tcp open  EtherNetIP-1 syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+
+Read from /usr/bin/../share/nmap: nmap-payloads nmap-services.
+# Nmap done at Tue Jan  5 15:50:44 2021 -- 1 IP address (1 host up) scanned in 344.34 seconds

